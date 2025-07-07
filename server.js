@@ -13,7 +13,6 @@ app.get("/proxy", async (req, res) => {
     return res.status(400).send('Missing "url" query parameter');
   }
   try {
-    console.log('targetUrl' + targetUrl)
     const response = await fetch(targetUrl, {
       headers: { 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36' }
     });
@@ -24,7 +23,6 @@ app.get("/proxy", async (req, res) => {
     res.header("Content-Type", response.headers.get("Content-Type"));
     res.send(data);
   } catch (error) {
-    console.log(error)
     res.status(500).send("Proxy server error.");
   }
 });
