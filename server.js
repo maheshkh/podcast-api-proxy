@@ -23,6 +23,7 @@ app.get("/proxy", async (req, res) => {
     res.header("Content-Type", response.headers.get("Content-Type"));
     res.send(data);
   } catch (error) {
+    console.log(error)
     res.status(500).send("Proxy server error.");
   }
 });
